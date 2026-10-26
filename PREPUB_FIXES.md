@@ -1,0 +1,109 @@
+# Fixes from the prepublication review
+
+This branch (`paper-prepub-fixes`) starts from `989ef7f` (`paper-review-fixes`). It applies the fixes proposed in
+`research/prepub_review/REPORT.md`, which is on branch `paper-prepub-review` of this repository. The `.tex` files are
+regenerated from the generators and ledgers; none was edited by hand.
+
+## Build status (run on this branch)
+
+| step | result |
+|---|---|
+| `python3 spectrepaper.py --selftest` | all checks pass |
+| `python3 spectre_supplement.py --selftest` | all checks pass (one new check: the count of numbered Facts) |
+| `make facts` | passes: spectrefacts 62 facts, monotilefacts 8 checks, chair44facts 43 checks, chair44_hull and chair44_lines tests (pyCICY not installed, so its optional cross-check was skipped) |
+| `make lean` | `SpectreFacts.lean`: 67 theorems, kernel accepted (Lean 4.33.1) |
+| `boundary_certificate/check_spectre_fractal.py` | passes; output in `out_spectre_fractal.txt` |
+| `boundary_certificate/spectre_window.py` | passes; output in `out_spectre_window.txt` |
+| `pdflatex` ×3 | `spectre_substrate.pdf` 31 pages, `spectre_supplement.pdf` 4 pages; no undefined references, no "may have changed", no overfull boxes in either |
+
+## Major
+
+**M1. Theorem 3 (window).** Fixed with option (b) of the report, restating the theorem as what is proved. The proof is
+now self-contained and no longer cites BGMS for regularity.
+- **Positive area and measure-disjointness, now proved.**
+  - The certificate now asserts that no contact type is the identity. The nearest candidate is at distance 4.11.
+  - Pieces of depth m within δλ⁻ᵐ of each other have a live type. So a disc of radius δλ⁻ᵐ/2 meets at most 1193
+    pieces.
+  - The mass distribution principle then gives positive area.
+  - Measure-disjointness follows from the Perron argument.
+- **The theorem now states:**
+  - the seams have box dimension exactly log(√2+√3)/log λ = 1.110977…;
+  - the lower box dimension of ∂Z_p(S) is at least that value for all four window types. The certificate now checks
+    that the lower bound reaches all four.
+- **A new paragraph after the proof says what is missing for ∂W itself:**
+  - an upper bound needs the neighbouring windows of a covering of internal space;
+  - BGMS's lattice tiling for CASPr would supply this once W is identified with their window;
+  - this is not done here.
+- The abstract and the conclusion are reworded to match.
+
+**M2. The supplement.**
+- The "beyond k=6 the recurrence is a conjecture" paragraph is replaced. It now says that `charpoly` is the one input
+  and that `boundary_recurrence` is proved by Theorem 1.
+- "Every Fact of the paper — all 71" now reads "ledger entries", with the count of numbered Facts (25) given
+  separately.
+- `internal_plane` now says the 1.2 is a box count and points to the exact seam value. Its docstring and method say
+  the same.
+- `chair_hull_theorem` now reads C₂^diag.
+
+**M3. Stale statements.**
+- Introduction: "one quoted input and two finite computations".
+- Conclusion: one unrefereed input, (R), plus Lemmas 1–2.
+- Sec. 5: "for every order (Theorem 1)".
+- The box count's patch level: "a level-5 patch; Figure 3 shows level 4".
+- Scope paragraph: Lee–Moody [LeeMoody] with [LMS] for the hull.
+- Look-back paragraph: the count is c_O G_O(ℓ) + c_G G_G(ℓ), with both glue formulas given, and the Mystic
+  convention is stated (with the other convention, the first ratio is 0.368).
+- Abstract: "with ratio tending exactly to ν/λ²".
+
+**M4. The 4D paragraph.**
+- 1566 is now called Kamenetsky's random-start plateau, and 273 is said to be above his structured-family value of 158.
+- The 400-pose cap of the test is stated, and so is the ≤300 cap in Kamenetsky's Theorem B.
+- The paper now says that the search records are not part of its build.
+
+**M5. Lean rebuild.**
+- The paper now says that the 162 regenerated reports agree with the published log theorem by theorem, up to the
+  namespace prefix, and that the post-build log equals the published one byte for byte.
+  - I checked this by fetching `lean/R44/build_axioms.log` at `d53d224` from GitHub. It is identical to
+    `committed_axioms_log` in `r44_build_result.json` (53,556 bytes).
+- A sentence on statement fidelity is added, and so is one on trusting the compiler.
+- `lean_rebuild/README.md`: the diff-audit row now says that its output was not saved. The audit was not re-run here.
+- The misleading comment in `r44_build.py` is corrected.
+
+## Minor
+
+- **m1.** In the proof of Theorem 2:
+  - It says which tiling is used: a limit of supertiles re-centred at deep tiles. Their neighbour placements are
+    live types.
+  - It cites the Spectre paper [SmithEtAl2, Thms 2.2, 5.1] instead of the Hat paper.
+  - The lower bound names the boundaries involved.
+  - `check_spectre_fractal.py` now asserts that O–O sibling pairs reach the block, so the bound applies to K and not
+    only to the Mystic limit.
+- **m2.** Lemma 1 uses Kamenetsky's labels (C1)–(C3), with (C2) (tightness of the face rules) stated separately.
+- **m3.** `spectre_window.py` now asserts key separation (at least 1.909) in place of the dead `ds` line.
+- **m4.** The BGMS paraphrase is corrected. Their value is a Hausdorff dimension, and their remark is about uniformity
+  along the boundary.
+- **m5.** Fact 24: the ±2 and ±3 sums are bounded, and the ±4 sums grow linearly, so h = 0 there.
+- **m6.** Build fixes:
+  - `make paper` and `paperfast` run pdflatex three times;
+  - `make paper` also builds the supplement;
+  - the supplement's 11 overfull boxes are fixed in `facts_appendix`: top-level `\text{}` is set as running text, and
+    long filenames may break after underscores;
+  - the page count in `REVIEW_FIXES.md` is corrected.
+- **m7.** The `boundary_exact` method now cites `boundary_certificate/spectre_exact.py`, the exact recount for k ≤ 6.
+  pyCICY is described as optional, and the selftest message is updated to match.
+- **m8.** The `SpectreFacts.lean` comment now says that only the two inequalities are proved, not fractality.
+  - A first wording of it began a comment line with "theorem", which made the theorem count read 68. The comment is
+    rewrapped and the count is back to 67.
+- **m9.** The conclusion now says "One further problem remains open".
+- **m10.** The supplement's author name now matches the paper: "Brent Hartshorn".
+- **m11.** `chair44_data/ATTRIBUTION.md` no longer lists Flicker's paper as a source of the data.
+- **m12.** The third implementation of Lemma 2 is now in the repository: `hierarchy_certificate/chair44_blocks_indep.py`,
+  with its output and a README section. The paper cites it there instead of the private repository.
+- **m13.** The Figure 2 caption now reads "by Theorem 1 they equal the recurrence".
+- **Bibliography.** BaakeHat now carries its journal reference: J. Math. Phys. 66 (2025) 092707.
+
+## Not changed
+
+- The upper bound for ∂W (option (a) of the report) is not attempted.
+- The 4D search counts (12,784; about 12,100) are still unverified. The paper now says that the records are outside
+  its build.

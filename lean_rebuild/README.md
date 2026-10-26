@@ -10,10 +10,12 @@ ephemeral container (8 cores, 16 GiB, no volumes), with `r44_build.py`. Full log
 | `lake build` | **ok**: "Build completed successfully (8638 jobs)" | 1702 s |
 | `lake env lean R44/Axioms.lean` | ok: 162 `#print axioms` reports | 11 s |
 | `scripts/controls.sh` | build, discharge build, sorry audit (0 executable, 0 marked), import closure, 4/4 negative controls and the scope regressions pass. The discharge diff audit fails only because the public `main` lacks the delivery archives | 83 s |
-| discharge diff audit with the archives (`r44_diff_audit.py`) | **PASS (67/67 files)**. The archives are restored from the reader commit `838bca5`, whose `lean/R44/R44` sources are identical | seconds |
+| discharge diff audit with the archives (`r44_diff_audit.py`) | reported as PASS (67/67 files) when it was run, but its output was not saved, so this row is not backed by a record here. The archives are restored from the reader commit `838bca5`, whose `lean/R44/R44` sources are identical to those at `d53d224` (checked with `git diff`) | seconds |
 
 Axioms:
-- The `build_axioms.log` that the build's metaprogram regenerates is **byte-identical** to the committed one (169 theorems).
+- The `build_axioms.log` in the tree after `lake build` (saved by `r44_build.py` after the build, as
+  `committed_axioms_log` in the JSON) is byte-identical to the file committed at `d53d224` (53,556 bytes, 169 theorems;
+  compared with the file fetched from GitHub on 2026-10-26).
 - The 162 fresh `#print axioms` reports agree with it, up to the `R44.` prefix in names.
 - No theorem depends on `sorryAx` or on any axiom other than `propext`, `Classical.choice`, `Quot.sound` and named
   `native_decide` hooks.
