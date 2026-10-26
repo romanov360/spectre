@@ -1,0 +1,16 @@
+PYTHONPATH=../CICY python3 spectrefacts.py --selftest
+spectrefacts: 62 facts, 18 with a Lean rendering -- all check.
+  cross-check: matches brentharts/spectre chirality_e8.substitution_matrix()
+  cross-check: pyCICY not on the path, so the perimeter is counted only with a rounding key
+python3 monotilefacts.py --selftest
+monotilefacts: 8 checks passed
+python3 chair44facts.py --selftest
+chair44facts: 43 checks passed
+python3 chair44_hull.py --tests
+chair44_hull: ok {'labels': 168, 'legal': 1410, 'per_depth': [168, 600, 1278, 1398, 1410, 1410], 'closed': True, 'contains_depth_one': True, 'rotation_closed': True, 'periodic': 27, 'periods': {1: 27}, 'fixed': 27, 'stabilisers': {1: 1296, 2: 96, 4: 12, 8: 6}, 'stabilisers_fixed': {1: 24, 8: 3}}
+python3 chair44_lines.py --tests
+chair44_lines: ok
+
+real	1m37.827s
+user	1m24.597s
+sys	0m18.272s

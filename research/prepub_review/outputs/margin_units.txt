@@ -1,0 +1,4 @@
+pruned: 1270 live: 93
+smallest finite-range margin (k < K, units of the quad diagonal): 0.0971
+smallest tail margin (k >= K, units of lam^k): 0.5367
+quad diagonal / lam^k at k = K: 3.5491

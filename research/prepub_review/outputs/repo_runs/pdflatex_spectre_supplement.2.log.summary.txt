@@ -1,0 +1,11 @@
+Overfull \hbox (32.4969pt too wide) in paragraph at lines 114--114
+Overfull \hbox (38.26303pt too wide) in paragraph at lines 131--131
+Overfull \hbox (134.92325pt too wide) in paragraph at lines 132--132
+Overfull \hbox (60.30954pt too wide) in paragraph at lines 136--136
+Overfull \hbox (64.94203pt too wide) in paragraph at lines 144--144
+Overfull \hbox (8.12721pt too wide) in paragraph at lines 146--146
+Overfull \hbox (38.44318pt too wide) in paragraph at lines 148--148
+Overfull \hbox (19.83823pt too wide) in paragraph at lines 148--148
+Overfull \hbox (12.6315pt too wide) in paragraph at lines 151--151
+Overfull \hbox (23.84225pt too wide) in paragraph at lines 156--156
+Output written on spectre_supplement.pdf (4 pages, 281060 bytes).

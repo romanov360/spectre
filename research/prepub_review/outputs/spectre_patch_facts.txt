@@ -1,0 +1,7 @@
+level 0: 1 tiles, 14 distinct vertices
+level 1: 9 tiles, 78 distinct vertices
+level 2: 71 tiles, 518 distinct vertices
+level 3: 559 tiles, 3734 distinct vertices
+level 4: 4401 tiles, 28006 distinct vertices
+level-4 patch: 4401 tiles, 29208 shared edges
+nonzero entries 62, rank 14, bipartite True, connected True, spectrum symmetric True

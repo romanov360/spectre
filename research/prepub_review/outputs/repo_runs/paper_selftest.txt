@@ -1,0 +1,127 @@
+structure
+  it opens a document                                        ok
+  and closes it                                              ok
+  braces balance                                             ok
+  abstract is closed                                         ok
+  longtable is closed                                        ok
+  thebibliography is closed                                  ok
+  fact is closed                                             ok
+  figure is closed                                           ok
+  thm is closed                                              ok
+  lem is closed                                              ok
+  cor is closed                                              ok
+  defn is closed                                             ok
+  proof is closed                                            ok
+  description is closed                                      ok
+  remark is closed                                           ok
+  no section is empty                                        ok
+  every reference has a label                                ok
+  every citation is listed and every entry cited             ok
+  the title is the new one                                   ok
+  the paper does not mention the machine-checked layer       ok
+the numbers are the live ones
+  the Perron eigenvalue appears                              ok
+  both censuses appear                                       ok
+  the charge values appear                                   ok
+  the table is out of the main paper                         ok
+  every fact of the paper is in the supplement, and no off-paper fact is ok
+  the supplement names this paper by its title               ok
+  every Lean attribution names a theorem that exists         ok
+  the Spectre angle is computed, with its closed form        ok
+  the availability statement names both repositories         ok
+  the 2-adic route is stated as cited and not re-proved      ok
+the boundary operator
+  the perimeter sequence is the live one                     ok
+  the boundary characteristic polynomial appears             ok
+  the growth rate is named as phi cubed                      ok
+  fractality is the proved theorem, with its certificate     ok
+  the tail ratio is stated as settled by the exact count     ok
+  the perimeter recurrence is stated as proved for every order, by the named certificate ok
+  the three exceptional contact sequences are named          ok
+  the twist is stated as a limit and the quadrilaterals as not similar ok
+  the transcendence of s* cites Gelfond-Schneider            ok
+  the Spectre-Hat compositum proposition is gone             ok
+  the derived identity is present and called derived         ok
+  the golden resemblance is refuted, not asserted            ok
+  the Spectre unit is said not to be golden                  ok
+  the compositum claim is stated as the weaker survivor      ok
+the balanced exponent and the closed form
+  the balanced exponent is a proposition in the boundary-operator section ok
+  s* is called exact but not algebraic                       ok
+  the drifting fit is explained as the estimator             ok
+  the interface count carries the Mystic perimeter           ok
+  the fine spectrum is left open explicitly                  ok
+unfolding the Chair44
+  the section is there and referenced from the introduction  ok
+  figure chair44_nets is included and exists                 ok
+  figure chair44_slice is included and exists                ok
+  figure chair44_compare is included and exists              ok
+  every label of the section is referenced                   ok
+  the net counts are the Facts                               ok
+  the chair twist is zero with I/4 and rational angles       ok
+  the notch sum is 2^n (1,1,1) and the interface law holds   ok
+  the chair orientation sum is exactly 2^n and the Spectre ratio is constant to 3 digits ok
+  the median slopes are negative, steeper for the chair, and quoted ok
+  the quoted linear inflation is the live one                ok
+  the section says it does not decide pure-point diffraction ok
+  the Spectre has 12 orientations in the placed patch        ok
+  the unfolding programs pass their own tests                ok
+the lift, the exact comparisons and the thesis
+  the monotile modules pass their own tests                  ok
+  the lift section precedes the Chair44 and the hierarchy section comes last but one ok
+  every new section is referenced from the introduction      ok
+  the integer inflation matrix and its polynomial appear     ok
+  the unit has norm one and the chair determinant is 8       ok
+  the internal plane is printed and the Galois conjugate is called unbounded ok
+  the window dimension is the proved theorem, the box count an estimate against it ok
+  the lift quotes the regularity of the windows from the literature ok
+  the centre diffraction is exact with the full Parseval sum ok
+  the orientation constant is called identified, not proved  ok
+  the channel table is the live one                          ok
+  the contact counts are the live ones                       ok
+  the paper is purely mathematical: the conjecture and the Weyl remark are in the companion note ok
+  the note states the thesis as a labelled conjecture that nothing computed tests ok
+  the bimetric references are cited and listed in the note   ok
+  the abstract makes no cosmological claim                   ok
+  the figures are included and exist                         ok
+  the README quotes the live Fact count                      ok
+the hierarchy section, the Weyl remark and the new framing
+  the hierarchy section is labelled computation, not Fact and says it supplies no clock ok
+  the hierarchy section sits between the exact comparisons and the conclusion ok
+  the quoted hierarchy numbers are the live ones             ok
+  clustering: no excess over the footprint control beyond level 1 (below 0.005) ok
+  records: level 1 determined at 3 ell, level 2 not at 4 ell ok
+  look-back: slope near 1 and tail ratios 0.45 to 0.60, for the Spectre and the quadtree ok
+  parity: one sign change of the pair statistic, negative swirl, no alternation ok
+  parity: the outline alternation holds in most comparisons and is clear at 3 -> 5 ok
+  the hierarchy figures are included and exist               ok
+  Barbour et al. is cited and listed                         ok
+  the Weyl remark is in the note and is called a proposal, not a result ok
+  the old title is gone                                      ok
+  the abstract mentions the hierarchy test                   ok
+the hull and the symmetry groups of Chair44 tilings
+  the hull subsection sits after the 2-adic route and before the chirality subsection ok
+  it is referenced from the introduction, the conclusion and the abstract ok
+  its theorems, lemma, corollary, definition and remark are labelled ok
+  the 2-adic subsection points to the theorem and no longer calls the hull open ok
+  the quoted and recomputed counts are the live ones         ok
+  the inputs (R) and (H) are named as quoted and the admissible count as not repeated ok
+  the statements match the quoted Fact                       ok
+  the einstein property is still called Tsiokos's claim      ok
+  2609.23783 is no longer credited to Tsiokos; the three new references are listed and cited ok
+  the Chair44 table has the symmetry-group row               ok
+  chair44_hull recomputes the legal blocks, their closure and the fixed seeds ok
+lines through a tiling: box means against line means
+  the lines subsection follows the hull subsection and precedes the chirality subsection ok
+  its propositions and table are labelled and referenced     ok
+  the live counts are in the text: six stack labels, 168 labels, 14 cases, heights -36 and +36 ok
+  every row of the corner-line table is the Fact             ok
+  the conditional proposition names its assumption and excludes irrational directions ok
+  the paper does not claim that all lines fail or that the sums are bounded or ballistic for every line ok
+  chair44_lines recomputes the box means, the stacks and the corner classes ok
+
+spectrepaper: 108371 characters, 12 sections, all checks pass.
+
+real	5m2.265s
+user	5m13.451s
+sys	0m36.467s

@@ -1,0 +1,4 @@
+reachable label sets: 209  with more than one label: 41
+c(M), M = 0..11: [1, 8, 64, 176, 400, 848, 1744, 3536, 7120, 14288, 28624, 57296]
+c(M) == 28*2^M - 48 for M >= 3: True
+spectral radius on non-singleton states: 2.0000000000

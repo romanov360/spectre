@@ -1,0 +1,45 @@
+level 1 P = 46 Q = 44
+level 2 P = 182 Q = 160
+level 3 P = 758 Q = 652
+level 4 P = 3198 Q = 2736
+level 5 P = 13534 Q = 11564
+level 6 P = 57318 Q = 48960
+level 7 P = 242790 Q = 207372
+level 8 P = 1028462 Q = 878416
+M =
+[[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0, 0], [1, 2, 0, 1, 0, 1, 2, 0, 0], [1, 1, 2, 1, 1, 0, 1, 1, 0], [1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 2, 2, 2, 2, 2, 1, 2, 2], [0, 0, 1, 1, 2, 2, 0, 2, 3]]
+charpoly(M) = x**5*(x - 1)*(x + 1)*(x**2 - 8*x + 1)
+rank M^n, n=1..4: [5, 4, 4, 4]
+matrix census from Delta, depth 0..6: [1, 8, 63, 496, 3905, 30744, 242047]
+T(n+1) = 8T(n) - T(n-1): True
+1^T (M^2 - 8M + I) == 0: True
+Q+ M == Q+: True ; Q- M == -Q-: True
+Q+ on depth 1..4 census: [-1, -1, -1, -1] ; Q- : [1, -1, 1, -1]
+Q- on single tiles of Lambda, Sigma, Psi: [0, 0, 0]
+Q-(Delta) = -1
+matrix census from Gamma, depth 1..4: [7, 55, 433, 3409]
+P(k), k=0..8: [14, 46, 182, 758, 3198, 13534, 57318, 242790, 1028462]
+Q(k), k=0..8: [20, 44, 160, 652, 2736, 11564, 48960, 207372, 878416]
+tile-level cross-check of the mod-2 outline for k <= 5: passed (edges used at most twice; outline = edges used once; tiles distinct)
+P(k) == 2F(3k+5)+4 for k<=KMAX: True
+P recurrence holds for k+3<=KMAX: True
+P(k+2)-4P(k+1)-P(k): [-16, -16, -16, -16, -16, -16, -16]
+Q recurrence from k=1: True ; at k=0: False
+growth bound P(k+3) >= 4P(k+2)+30: [30, 166, 742, 3182, 13518, 57302]
+direction split (k, P, even, odd, even-odd, max |Z/3 or faithful amplitude|, even==F(3k+4)+1, odd==F(3k+3)+1):
+  0 14 4 3 1 1.00 True True
+  1 46 14 9 5 1.00 True True
+  2 182 56 35 21 2.65 True True
+  3 758 234 145 89 2.65 True True
+  4 3198 988 611 377 3.61 True True
+  5 13534 4182 2585 1597 3.61 True True
+  6 57318 17712 10947 6765 1.73 True True
+  7 242790 75026 46369 28657 2.65 True True
+  8 1028462 317812 196419 121393 1.00 True True
+charpoly(Phi) in the (a,b,c,d) basis: (x - 1)**4*(x + 1)**4*(x**4 - 8*x**2 + 1)**2
+Phi reproduces 6 actual levels exactly: True
+quad diagonal ratio at the last two levels (k, |r|, arg deg): [(7, 2.805887, -11.565082, 7.873067, -0.000271158), (8, 2.8058841, 11.565047, 7.872994, -3.4441e-05)] ; theta_S from tan formula = 11.565051; lambda = 2.8058837
+
+real	1m57.922s
+user	1m45.966s
+sys	0m10.619s

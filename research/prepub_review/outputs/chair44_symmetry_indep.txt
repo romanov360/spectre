@@ -1,0 +1,20 @@
+raw face contacts: 2388  mirror: 1194  legal: 44  legal mirror: 0
+hierarchical contacts: |P1| = 21  |P0| = 30  P0 subset of legal: True
+cell substitution: every label appears [8] times as a child (row sums of the 168x168 matrix); each label has 8 children
+primitive: all entries of M^3 positive
+depth 1: 0 of 8 addresses coincide
+depth 2: 0 of 64 addresses coincide
+depth 3: 336 of 512 addresses coincide
+   (0,0,2) among them: True ; also with reversed digit order: True
+distinct windows of sigma^n(j), cumulative n=1..6: [168, 600, 1278, 1398, 1410, 1410]
+closed under child windows: True
+central map: 27 periodic blocks, 27 fixed
+stabiliser orders of the fixed blocks: {1: 24, 8: 3}
+C2 coordinate axis z         |K|=2: 18 blocks in G_K (full stabiliser orders {2: 12, 8: 4, 4: 2}); SCCs with >= 2 shift labels: none
+C4 about z                   |K|=4: 4 blocks in G_K (full stabiliser orders {8: 2, 4: 2}); SCCs with >= 2 shift labels: [(4, [-1, 0, 1])]
+C2 face diagonal (1,1,0)     |K|=2: 14 blocks in G_K (full stabiliser orders {2: 10, 8: 2, 4: 2}); SCCs with >= 2 shift labels: [(5, [-1, 0, 1])]
+C2 face diagonal (1,-1,0)    |K|=2: 14 blocks in G_K (full stabiliser orders {2: 10, 8: 2, 4: 2}); SCCs with >= 2 shift labels: [(5, [-1, 0, 1])]
+
+real	3m6.405s
+user	2m56.043s
+sys	0m8.369s

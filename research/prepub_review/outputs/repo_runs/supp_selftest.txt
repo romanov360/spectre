@@ -1,0 +1,13 @@
+the table is complete
+  every Fact key appears in the supplement                   ok
+  the quoted Fact count is the real one                      ok
+  the quoted Lean count is the real one                      ok
+the two documents agree
+  the main paper no longer carries the table itself          ok
+  the main paper title is the one this document names        ok
+the honesty notes survive
+  the phantom attributions are mentioned                     ok
+  the two input Facts are named as inputs                    ok
+  an audit is called not a proof                             ok
+
+spectre_supplement: all checks pass.

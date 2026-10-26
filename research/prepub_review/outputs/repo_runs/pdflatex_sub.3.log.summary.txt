@@ -1,0 +1,4 @@
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+Output written on spectre_substrate.pdf (30 pages, 1691243 bytes).

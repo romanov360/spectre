@@ -1,0 +1,11 @@
+live types: 1192
+closest approach of |d| to the pruning threshold 2*RAD: 0.02636 (RAD = 4.1003372)
+smallest distance between distinct translations with the same (S1,S2,p,B): 1.9093
+distinct linear parts B: 6, smallest distance between them 1.4142
+depth 7: 3115867 points; extent 2.4654
+box counts (eps, occupied, boundary): [(0.4, 52, 25), (0.2, 168, 53), (0.1, 592, 111), (0.05, 2213, 239), (0.025, 8532, 525)]
+  eps 0.400 -> 0.200: boundary slope 1.084, area slope 1.692
+  eps 0.200 -> 0.100: boundary slope 1.066, area slope 1.817
+  eps 0.100 -> 0.050: boundary slope 1.106, area slope 1.902
+  eps 0.050 -> 0.025: boundary slope 1.135, area slope 1.947
+point spacing at this depth is about lam^-7 * scale = 0.0030; counts at eps below a few times this are unreliable

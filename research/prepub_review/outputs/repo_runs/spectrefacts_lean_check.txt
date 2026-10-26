@@ -1,0 +1,11 @@
+SpectreFacts.lean: 67 theorems, kernel accepted.
+AXIOM AUDIT (measured by `#print axioms` on every theorem):
+
+    43 theorems depend on no axioms at all.
+    24 depend on Quot.sound, propext -- the standard Lean foundation.
+    They are the induction proofs; `simp` and `omega`
+    bring these in. Classical.choice appears nowhere, so
+    every proof here is constructive.
+    sorryAx appears nowhere: nothing is admitted.
+
+
