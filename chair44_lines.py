@@ -115,7 +115,7 @@ def stack_labels():
 
 def stack_check(depth=6):
     """For each stack label j: the diagonal of sigma^depth(j) is constant; and for every native cell k of the chair
-    there is a diagonal line of identical labels (frame of j, k), of length 2^depth - 2.  Returns a list of dicts."""
+    there is a diagonal line of identical labels (frame of j, k), of length at least 2^depth - 2 (exactly 2^depth on the main diagonal and 2^depth - 1 on the others).  Returns a list of dicts."""
     st = _st()
     N = 2 ** depth
     obs = observables()

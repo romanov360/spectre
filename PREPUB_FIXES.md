@@ -153,3 +153,41 @@ A fresh adversarial pass over the fixed paper found the following. All are fixed
 - **Supplement.** Its counts (25 numbered Facts, 71 ledger entries, 24 Lean-marked, 67 theorems) match the paper, the
   ledgers and `SpectreFacts.lean`. Its rows for `chair_lines`, `centre_diffraction` and `internal_plane` agree with the
   paper.
+
+## Fourth review round
+
+Every proof and computed claim in the paper was read again against the code. These were found and fixed.
+
+- **Aperiodicity overclaim.** The paper said aperiodicity of the Chair44 is "re-proved". It is not: Section 6 shows that no
+  tiling obeying the contact rules has a period, so aperiodicity of tilings by the solid follows only given Tsiokos's
+  registration theorem (R), which is quoted. The abstract, chair intro, hull scope, caveats and conclusion now all say
+  this, and the einstein property stays Tsiokos's claim.
+- **Prop sstar.** The range is now 1 ≤ c ≤ N, the proof is given, and the window measure no longer reuses μ.
+- **Symbol clashes.**
+  - Thm sym proof: the cycle length p became q, and μ became η.
+  - Prop lineaction: ν became ℙ, the ergodic measure became ℙ′, and the translation T^v became S^v.
+  - Fact channels: the eigenvalue μ became ϱ.
+  - Section 8: the level ℓ became j, and the probability P became Pr. P(k) is the perimeter.
+- **Fact orientrec.** It now names the Δ entry as the orientation sum of the supertile, and says the growth holds for odd
+  n as well as even n.
+- **Parity paragraph.** θ_o, θ_t and φ are now defined.
+- **Prop stack (chair stacks).** It said the seven lines have length 2ⁿ−2. The induction gives 2ⁿ on the main diagonal and
+  2ⁿ−1 on the other six. This was checked on the depth-5 cube for all six labels. The proof now lists T and counts the
+  cells.
+- **Corner lines.** "each [closed class] reached from every label" is false for b = (1,1,1), whose six closed classes are
+  fixed letters. The text now says that every label leads into a closed class, which is what the code checks.
+- **Unfolding.** "Cutting along a spanning tree, 23 cuts" was wrong. The 23 tree edges are the hinges, and the other 25
+  edges are cut. The number is computed by the template.
+- **Notch sums.** "The notch sum is 2ⁿ" now reads 2ⁿ(1,1,1). |S|²/N = 2⁻ⁿ is stated per component, in the text, the
+  table and the conclusion.
+- **Fact orientsum.** It now points to the exact recursion of Fact orientrec, instead of saying "with no proof".
+- **Slice figure, panel (c).** The unweighted |F(0)|² was drawn and captioned as 8ⁿ. It is 64ⁿ: 8ⁿ is I(0)/N. The plot is
+  corrected in `chair44_findings.py` and `chair44_slice.py`, the figure is regenerated, and the caption is fixed.
+- **Layer interface.** "Tends to 4 per level" now reads "approaching 4 over the levels computed", because the formula is
+  checked only for n ≤ 4.
+- **Outline comparison.** "By a 20% margin only for k=3" was ambiguous. It now states the criterion: the rotation distance
+  is below 0.8 times the reflection distance.
+- **Code docstrings.** `chair44_lines.py` (line lengths) and `chair44_unfold.py` (hinges against cuts, floating-point
+  positions) are corrected.
+- **Build.** The selftest passes, pdflatex ×3 gives 32 pages, and there are no overfull boxes and no undefined
+  references. The `chair44_lines`, `chair44_unfold` and `chair44_slice` tests pass.
