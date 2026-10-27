@@ -324,3 +324,16 @@ A full re-read of the regenerated paper, checking every number and every proof s
   identity, the mesh and net Euler characteristics, the surface/shared identity, the chair exponents, and
   Σv = 1 for the frequency vector in Z[√15]⁹. The Lean marks count 24. No other errors were found.
 - Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
+
+## Twelfth review round
+
+- `hierarchy_certificate/README.md` called `chair44_blocks_indep.py` the "third implementation", but the paper
+  lists four implementations of Lemma 2. It now reads "a further implementation", sharing no code with the
+  others, which matches §7.4 and §11.
+- Re-read the passages changed in rounds 10–11 as rendered (Lemma 2 paragraph, §11, note Remark 1). No other
+  errors were found. Documents only; no generated file changed.
+
+## Thirteenth review round (convergence)
+
+- Checked the repository's other READMEs and the chair44_independent notes for implementation counts or wording
+  that rounds 10–12 changed in the paper: none remain. Nothing was found, so the review has converged.
