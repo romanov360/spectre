@@ -784,7 +784,7 @@ four-group of symmetries, or exactly a $2$-fold coordinate axis.
 \noindent
 The theorem is about tilings and does not conflict with Fact~\ref{fact:chairchiral}, which is about the tile: the
 decorated chair has only the identity, and a tiling by it can still be invariant under a rotation of its whole pattern.
-Nor does the bound of $8$ conflict with the $24$ orientations that occur in a depth-three supertile
+Nor does the bound of $8$ conflict with the $24$ orientations that occur in a depth-two supertile
 (Fact~\ref{fact:chairtwist}): by Theorem~\ref{thm:hull} every tiling contains all of them, and it is symmetric under
 at most a third of the $24$ rotations.
 
@@ -1353,7 +1353,8 @@ rounding key is therefore not load-bearing for any of the boundary results.
 \end{fact}
 
 \noindent
-The factorisation of $\chi_{\partial}$ is not left as a spectral remark.  Its
+The factorisation of the characteristic polynomial $\chi_{\partial}$ of the perimeter recurrence
+(Fact~\ref{fact:bdychi} below) is not left as a spectral remark.  Its
 quadratic factor applied to the sequence annihilates the growing part and
 leaves behind the constant belonging to the marginal eigenvalue.  By
 Theorem~\ref{thm:bdy} the identity holds for the perimeters at every order:
@@ -1560,7 +1561,7 @@ def facts_appendix():
 \section{Every Fact, and how it was obtained}
 \label{app:facts}
 
-Generated from \code{spectrefacts.py}.  The last column marks the Facts that
+Generated from the ledger modules.  The last column marks the Facts that
 are also proved in Lean, see \url{https://github.com/brentharts/spectre/wiki/Spectre-Lean}; the others are computations.
 
 \setlength{\tabcolsep}{3pt}
@@ -1795,7 +1796,7 @@ space; the internal space of the chair is $2$-adic (Section~\ref{sec:chair}).
 \begin{fact}[The internal plane]
 \label{fact:plane}
 A linear functional of $(p,q,r,s)$ has bounded range on the supertile corners exactly when it kills the expanding part
-($\Phi^{2}=4+\sqrt{15}$) of every iterate of the key-point vector.  Each level mirrors the frame, so the odd iterates
+(on which $\Phi^{2}$ acts as $4+\sqrt{15}$) of every iterate of the key-point vector.  Each level mirrors the frame, so the odd iterates
 are mirrored first; the expanding parts then span two dimensions and the annihilator is the plane
 \[
 @plane@
@@ -2353,8 +2354,7 @@ run on commit \code{d53d224} of~\cite{Tsiokos1} and merged into
 \href{https://github.com/brentharts/six-birds-tiles/tree/main/verify/hull}{six-birds-tiles, \code{verify/hull}}; an independent
 implementation, the reproduction of Kamenetsky's finite conditions, the $O$-orbit certificate of the lemma
 (\code{c44lemma\_cert.py}, \code{lemmaA\_orbits.json}) and the audit of Tsiokos's registration theorem
-(\code{registration\_audit.py}, \code{REGISTRATION\_AUDIT.md}) are in the directory \code{chair44\_independent} of this
-repository.
+(\code{registration\_audit.py}, \code{REGISTRATION\_AUDIT.md}) are in the directory \code{chair44\_independent} of~\url{https://github.com/brentharts/spectre}.
 
 \bibitem{BaakeHat} M.~Baake, F.~G\"ahler, J.~Mazá\v{c} and A.~Mitchell, \emph{Diffraction of the Hat and Spectre tilings
 and some of their relatives}, J.\ Math.\ Phys.\ \textbf{66} (2025) 092707; arXiv:2502.03268.
@@ -2371,7 +2371,7 @@ tilings}, Discrete Comput.\ Geom.\ \textbf{78} (2026) 739--762; arXiv:2411.15503
 
 
 
-\bibitem{Kamenetsky} D.~Kamenetsky, \emph{Towards Strongly Aperiodic Monotiles in Higher Dimensions}, arXiv:2610.00916.
+\bibitem{Kamenetsky} D.~Kamenetsky, \emph{Towards Strongly Aperiodic Monotiles in Higher Dimensions} (2026), arXiv:2610.00916.
 
 \bibitem{LeeMoody} J.-Y.~Lee and R.~V.~Moody (2001). Lattice substitution systems and model
 sets. \emph{Discrete Comput. Geom.} 25, 173--201.

@@ -289,7 +289,7 @@ def register():
                 'the doubled chair: equal, so the inflation is a pure scaling by 2 with no net '
                 'rotation and no mirror; the child frames are rotations by 0, 90, 120, 180 degrees '
                 '(rational multiples of pi) whose mean matrix is exactly I/4, so the mean frame at '
-                'depth n is I/4^n. Contrast Fact 11: the Spectre supertile is turned by 11.565 '
+                'depth n is I/4^n, and the 64 frames at depth two already give all 24 rotations. Contrast the Spectre, whose supertile is turned by 11.565 '
                 'degrees (irrational) and mirrored at every level')
 
     import chair44_findings as FD
@@ -323,7 +323,7 @@ def register():
 
     ot = FD.orientation_table()
     fact(key='orientation_sums',
-         claim=r'S_{n}^{\mathrm{chair}}=2^{n}\ \text{exactly};\ \ |S_{n}^{\mathrm{Spectre}}|/\lambda^{n}\to1.4489',
+         claim=r'S_{n,z}^{\mathrm{chair}}=2^{n}\ \text{exactly};\ \ |S_{n}^{\mathrm{Spectre}}|/\lambda^{n}\to1.4489',
          value=dict(levels=[r['n'] for r in ot['chair']],
                     chair_sum=[r['S'] for r in ot['chair']],
                     chair_i0=[r['i0'] for r in ot['chair']],
@@ -392,7 +392,7 @@ def register():
                     scope='atlas tilings (registered, all face contacts in the 44-contact atlas); for tilings by '
                           'the solid Q via registration (R), quoted and independently audited',
                     inputs=['registration (R), for the solid only', 'unique hierarchy (H), Kamenetsky Prop. 7.1']),
-         method='Romanov (this paper): one level of the hierarchy plus a finite computation on the 8 cells '
+         method='Romanov (the second author, cited draft): one level of the hierarchy plus a finite computation on the 8 cells '
                 'around a lattice vertex (360,189 admissible blocks in 15,214 O-orbits, each with all 27 child '
                 'windows legal), repeated by an independent implementation and published as an orbit certificate. '
                 'Quoted and not recomputed here, except the legal-block and fixed-seed counts of '

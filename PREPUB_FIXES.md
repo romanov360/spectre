@@ -214,3 +214,36 @@ Every proof and computed claim in the paper was read again against the code. The
   - (Π,3) and (Π,4) give 1, 7, 22, 91, 378, 1599, which obeys neither the recurrence nor its order-4 extension.
 - **Build.** The selftest passes, pdflatex ×3 gives 32 pages, and there are no overfull boxes and no undefined
   references.
+
+## Sixth review round
+- **Supplement preface.** The Propositions wording now matches the paper's introduction. The source of the claims is
+  now "the ledger modules" rather than `spectrefacts.py` alone, since the table also draws on `chair44facts.py` and
+  `monotilefacts.py`. The description of the truncated method column now also mentions the cut at about a hundred
+  characters, marked by an ellipsis.
+- **Supplement ledger.**
+  - The orientation_sums claim was S_n^chair. The method computes only the z component of the notches, so the claim
+    is now S_{n,z}^chair.
+  - "Romanov (this paper)" now reads "the second author, cited draft".
+  - The chair_twist method no longer cites a hard-coded "Fact 11".
+- **Bibliography.**
+  - Kamenetsky now carries its year.
+  - The Romanov entry said "this repository". It now names the brentharts/spectre repository.
+- **χ_∂ forward reference.** The text factorised χ_∂ before Fact bdychi defined it. It now names the characteristic
+  polynomial of the perimeter recurrence and refers ahead to the Fact.
+- **Internal plane.** "The expanding part (Φ² = 4+√15)" equated a matrix with a number. It now says Φ² acts as 4+√15
+  on that part.
+- **Depth of the 24 orientations.** Fact chairtwist said all 24 rotations occur at depth two, while the symmetry
+  section said depth three and the code checked depth three. Recomputing gives 7, 24 and 24 distinct frames at depths
+  1, 2 and 3. The code now checks depth two, and the text says depth two in both places.
+- **Checked without change.**
+  - The centre-set Parseval sum: 21/4 per level, total 1/7.
+  - The amplitudes at J=1.
+  - The orientation constant: c² is a root of the stated quartic to 28 digits.
+  - The channel exponents.
+  - 5376 = 12(8³−4³).
+  - The notch-sum and interface sequences.
+  - The tail ratio ν/λ² = 0.538.
+  - The proof of Proposition lineaction.
+  - The net counts: Euler characteristic, 23 hinges and 25 cuts, 384 cube trees and 11 nets, minimum perimeter 20.
+- **Build.** The selftest passes, pdflatex ×3 on both documents gives no overfull boxes and no undefined references,
+  and `chair44_twist.py` passes.

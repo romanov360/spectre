@@ -66,7 +66,8 @@ def preface():
 
 The main paper stratifies its statements: \emph{Facts} are exact statements,
 each proved, verified by an exact finite computation over a stated range, or
-quoted; \emph{Propositions} carry a modelling step.  The numbered Facts of the
+quoted; \emph{Propositions} are of narrower scope, proved or computed, with their
+modelling steps and hypotheses stated in them.  The numbered Facts of the
 paper (%d of them) are drawn from a ledger of finer entries.  This document
 lists every ledger entry the paper draws on --- all %d --- with the key under
 which the ledger (\code{spectrefacts.py}, \code{chair44facts.py},
@@ -79,7 +80,7 @@ Three things about the table.
 
 \begin{itemize}
 \item \textbf{It is generated, not written.}  Every row is emitted at build
-  time from \code{spectrefacts.py}, the same module that produces every
+  time from the ledger modules, the same modules that produce every
   number in the main paper.  There is no second copy to drift.
 
 \item \textbf{The Lean column is measured, not asserted.}  A checkmark means
@@ -95,7 +96,8 @@ Three things about the table.
   (\code{boundary\_certificate/}), not in Lean.
 
 \item \textbf{The method column is the first sentence.}  A method that runs
-  to a paragraph is truncated at its first full stop or semicolon.  The full
+  to a paragraph is truncated at its first full stop or semicolon, and
+  then, marked by an ellipsis, at about a hundred characters.  The full
   text is in the module, one lookup by key away.
 \end{itemize}
 
