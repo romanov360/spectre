@@ -33,6 +33,8 @@ import spectrepaper as P
 OUTPUT = os.path.join(HERE, 'spectre_supplement.tex')
 
 PREAMBLE = r"""\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{longtable,booktabs,array}

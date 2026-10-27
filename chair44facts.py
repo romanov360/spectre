@@ -352,7 +352,7 @@ def register():
     tw = TA.report()
     c = tw['counts']
     fact(key='chair_coincidence',
-         claim=r'\text{modular coincidence at depth }3,\ c(M)=28\cdot2^{M}-48\ (M\ge3)',
+         claim=r'\text{modular coincidence at depth }3,\ c(M)=28\cdot2^{M}-48\ (M\ge1)',
          value=dict(labels=tw['labels'], primitive_exponent=tw['primitive_exponent'],
                     depth=tw['coincidence_depth'], address_0_0_2=tw['address_0_0_2'],
                     coincident=tw['coincident_addresses'], of=tw['words_at_depth'],
@@ -363,7 +363,7 @@ def register():
                 'with (0,0,2) among the 336 of 512 coincident addresses, matching the depth and '
                 'address recorded upstream (substitution_modular_coincidence). A subset automaton '
                 '(209 reachable label sets, 41 non-singleton) counts the words not yet coincided, '
-                'c(M) = 28*2^M - 48, so the undetermined set in Z_2^3 has box dimension 1. '
+                'c(M) = 28*2^M - 48 for M >= 1, so the undetermined set in Z_2^3 has box dimension 1. '
                 'Pure-point diffraction and limit-periodicity follow only through the cited '
                 'Lee-Moody / Schlottmann theorem, which is not re-proved here',
          lean='coincidence_closed')

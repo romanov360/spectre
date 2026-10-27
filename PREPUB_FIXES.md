@@ -286,3 +286,20 @@ A full re-read of the regenerated paper, checking every number and every proof s
   1–46), both checked; fixed missing punctuation after the Smith et al. title and after "B.~Hartshorn".
 - Main paper and supplement checked for claims conflicting with the Taylor–Socolar example: none.
 - Selftest: all checks pass; three documents: 0 overfull, 0 undefined, 0 errors.
+
+## Ninth review round
+
+- §8.4: removed "centres lie on a lattice with defects" (wrong: they lie on two cosets of $2\mathbb{Z}^3$,
+  Fact `chair_slices`); the cause of the rate difference is now stated as not analysed.
+- §7.3, ledger `chair_coincidence`, `chair44_twoadic.py`: $c(M)=28\cdot2^M-48$ and $c(M+1)=2c(M)+48$ hold
+  from $M=1$, not only from $M=3$ (checked: $c=8,64,176,400,\dots$); the range is now stated as $M\ge1$
+  everywhere, and the script's check now starts at $M=1$.
+- Supplement: `<` and `>` in the method column rendered as "¡" and "¿" (OT1 encoding); added
+  `\usepackage[T1]{fontenc}` and `lmodern`.
+- Bibliography (paper and note): put every entry in one style (authors, \emph{title}, journal
+  \textbf{volume} (year) pages; arXiv; URL). Mixed "Author (year). Title." entries are converted; there are
+  no changes to the content of any entry.
+- Re-verified the main paper's numerical and algebraic claims (Q± values, twist, perimeter closed form and
+  bound, dimensions, minimal polynomials, chair interface counts, automaton counts, Theorems 4–5, Facts
+  20–25). No mathematical errors were found.
+- Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
