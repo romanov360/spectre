@@ -2235,8 +2235,8 @@ the Weyl tensor vanishes at the initial singularity): a $2{+}1$ substrate has no
 degrees of freedom would first appear with the third spatial dimension, the step the conjecture assigns to the Chair44.
 Nothing here derives it.  No map from tile data to a metric is given; it is not shown that a $2{+}1$ substrate can acquire
 $3{+}1$ Weyl degrees of freedom as space emerges; and the hierarchy section of~\cite{HartshornRomanov} leaves open what
-the hierarchy depth is: if the
-third spatial dimension, a separate time is needed, and if look-back time, gravitational waves need a propagation rule that
+the hierarchy depth is: if it is the
+third spatial dimension, a separate time is needed, and if it is look-back time, gravitational waves need a propagation rule that
 the tiling does not supply.
 \end{remark}
 """

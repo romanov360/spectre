@@ -313,3 +313,14 @@ A full re-read of the regenerated paper, checking every number and every proof s
   described after the lemma, reproduce", which matches §7.4.
 - Re-read the whole main paper against its ledgers (§§1–11, references). No other errors were found.
 - Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
+
+## Eleventh review round
+
+- Companion note, Remark 1: the elliptical "if the third spatial dimension, … and if look-back time" is now
+  "if it is the third spatial dimension, … and if it is look-back time".
+- Re-read the companion note and the supplement in full. Checked every closed form in the supplement table
+  by hand: the Pell unit, λ, the channels, the contraction, φ⁴, φ³, the Fibonacci form and its seeds, the
+  boundary invariant, the growth bound (equality at k = 0), cos 2θ_S from tan θ_S, c ≈ 1.4489, the census
+  identity, the mesh and net Euler characteristics, the surface/shared identity, the chair exponents, and
+  Σv = 1 for the frequency vector in Z[√15]⁹. The Lean marks count 24. No other errors were found.
+- Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
