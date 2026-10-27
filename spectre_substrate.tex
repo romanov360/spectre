@@ -345,8 +345,8 @@ separated at every order: by a radius bound for $k\le60$, and by the exact eigen
 $q_{k}$ for $k>60$, with a margin of at least $0.097$ in units of the quadrilateral's diagonal.  On
 the $93$ types the interior overlap vanishes at order $0$, hence at every order by the same sum.
 So the supertiles are genuine patches; this is proved here, not assumed.  The state
-$(P,Q,S_{1},\dots,S_{93})$ then obeys $V(k+1)=BV(k)$ with a fixed $95\times95$ integer matrix $B$.
-The sequence $e^{\top}B^{k}p(B)V(0)$, with $p(x)=x^{3}-5x^{2}+3x+1$, vanishes for $k<95$, hence for
+$(P,Q,S_{1},\dots,S_{93})$ then obeys $V(k+1)=\mathcal{B}V(k)$ with a fixed $95\times95$ integer matrix $\mathcal{B}$.
+The sequence $e^{\top}\mathcal{B}^{k}p(\mathcal{B})V(0)$, with $p(x)=x^{3}-5x^{2}+3x+1$, vanishes for $k<95$, hence for
 all $k$ by Cayley--Hamilton; the same argument gives the recurrence of $Q$.  The closed form follows
 because $F_{n+6}=4F_{n+3}+F_{n}$ and the seeds agree.  The computation is
 \code{boundary\_certificate/check\_spectre\_boundary\_proof.py}.  It works from an independent exact
@@ -540,10 +540,11 @@ fork's own tile builder, so this is a count and not an independent second
 route.
 
 \textbf{The fine decomposition.}  Resolved by species and edge index, the boundary has $52$ edge types,
-and counted on placed tiles for $k\le6$ (\code{spectre\_golden.py}) only $34$ of them satisfy the recurrence of
-Theorem~\ref{thm:bdy} after the first term.  Of the other $18$, $14$ are bounded and of period two, such as
-$1,2,1,2,1,2$, and the rest grow without obeying it or its obvious order-four extension: the edges $3$ and $4$
-of $\Pi$ both give $1,7,22,91,378,1599$, whose ratios still approach $\nu$.  The operator of
+and counted on placed tiles for $1\le k\le6$ (\code{spectre\_golden.py}; the single tile at $k=0$ is dropped) only $34$ of
+them satisfy the recurrence of Theorem~\ref{thm:bdy}.  Of the other $18$, $14$ are bounded and of period two, such as
+$1,2,1,2,1,2$, and the remaining four grow without obeying it or its obvious order-four extension: the edges $3$ and $4$
+of $\Pi$ both give $1,7,22,91,378,1599$ and those of $\Psi$ both give $0,5,31,141,607,2581$, and their ratios still
+approach $\nu$.  The operator of
 Theorem~\ref{thm:bdy} is exact for the aggregates; the operator on the fine types is larger, and its
 spectrum below $\nu$ is not determined by these orders.
 
@@ -578,7 +579,7 @@ The depth-$N$ patch is the order-$N$ supertile, of perimeter $P(N)$.  It is the 
 $N-c$ with disjoint interiors (Theorem~\ref{thm:bdy}), counting a Mystic as one, and $N_{\Gamma}(c)=T(c-1)$ of them are
 Mystics (Fact~\ref{fact:mystic}).  Summing their perimeters counts every interface edge twice and every edge of the
 outline once, which gives the count.  It grows in $c$ by $\lam^{2}/\nu$ because $T(c)\sim a\lam^{2c}$ and
-$P(N-c),Q(N-c)\sim b\,\nu^{N-c}$.  With $B_{c}$ edges of cross-section $\delta_{c}^{2}$ the volume at level $c$ is of order
+$P(N-c),Q(N-c)\sim b\,\nu^{N-c}$.  With the $B_{c}$ interface edges at coarseness $c$, each of cross-section $\delta_{c}^{2}$ the volume at level $c$ is of order
 $\mu^{c}\lam^{-2sc}$, which is independent of $c$ exactly when $\lam^{2s}=\mu$, that is, at $s=s^{*}$.
 \end{proof}
 
@@ -873,15 +874,15 @@ and perimeter fields observed for the Spectre in Section~\ref{sec:bdyop} does no
 
 Let the $24$ proper rotations be the species and let $M_{FF'}$ count the children of an
 $F$-oriented chair that are $F'$-oriented.  The characteristic polynomial is
-$x^{3}(x-8)(x-2)^{20}$, the minimal polynomial divides $x(x-8)(x-2)$, every row and column sums to
+$x^{3}(x-8)(x-2)^{20}$, the minimal polynomial is $x(x-8)(x-2)$, every row and column sums to
 $8$, and $\operatorname{rank}M^{n}=21$ for all $n\ge1$.  The zero sector is
 semisimple, there is no negative eigenvalue, and orientation frequencies converge to $1/24$
 at the rate $(2/8)^{n}$ in the depth $n$.  The Spectre's matrix is the opposite on each
 count: a Pisot unit, irrational frequencies and a zero sector with a Jordan pair.  The
 consequence is a narrowing.  The Pisot route to pure-point diffraction and the
 irrational-frequency witness of aperiodicity (Section~\ref{sec:spectral}) both need an inflation
-that is a Pisot number and frequencies that are irrational, and an integer inflation $2$ with
-rational frequencies supplies neither.
+that is an irrational Pisot number, with conjugates to supply a Euclidean internal space, and frequencies that
+are irrational; the integer inflation $2$, Pisot only vacuously, with rational frequencies supplies neither.
 
 The replacement is $2$-adic, and it is classical: the undecorated chair substitution, in any dimension, is a
 standard example of a lattice substitution with a modular coincidence, pure point diffractive with a $2$-adic internal
@@ -1021,7 +1022,7 @@ lies, up to an isometry, in $\Omega_{\sigma}$.
 Let $P$ be a finite patch of an atlas tiling $T$.  By~(H) every $D^{m}(T)$ is an atlas tiling on a lattice
 $L_{m}=2^{m}\mathbb{Z}^{3}+o_{m}$, $L_{m+1}\subset L_{m}$.  For $2^{n-1}$ larger than the diameter of $P$, $P$ lies in
 $\sigma^{n}(\beta)$ for the block $\beta$ of $D^{n}(T)$ at the vertex $v$ of $L_{n}$ nearest to $P$, and $\beta$ is the window at
-offset $v-v'+(1,1,1)$ of $\sigma(\beta')$ for the block $\beta'$ of $D^{n+1}(T)$ at the vertex $v'$ of $L_{n+1}$ nearest to
+offset $2^{-n}(v-v')+(1,1,1)$ of $\sigma(\beta')$ for the block $\beta'$ of $D^{n+1}(T)$ at the vertex $v'$ of $L_{n+1}$ nearest to
 $v$.  As $\beta'$ is admissible, $\beta$ is legal by Lemma~\ref{lem:blocks}, and so is $P$.  No exhaustion of space by one
 supertile is used, so tilings with fault planes are covered.
 \end{proof}

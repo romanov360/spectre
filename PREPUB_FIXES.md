@@ -247,3 +247,31 @@ Every proof and computed claim in the paper was read again against the code. The
   - The net counts: Euler characteristic, 23 hinges and 25 cuts, 384 cube trees and 11 nets, minimum perimeter 20.
 - **Build.** The selftest passes, pdflatex ×3 on both documents gives no overfull boxes and no undefined references,
   and `chair44_twist.py` passes.
+
+## Seventh review round
+
+A full re-read of the regenerated paper, checking every number and every proof step against the code or by hand.
+
+- **Notation clash.** In the proof of Theorem bdy, the 95×95 transfer matrix was called $B$, the same letter as $B=D\bar D$
+  in Fact twist. It is renamed $\mathcal{B}$.
+- **Fine decomposition.**
+  - The text now states the range counted: placed tiles, $1\le k\le6$, with the single tile at $k=0$ dropped.
+  - The $\Psi$ sequence is corrected to $0,5,31,141,607,2581$, recomputed from `spectre_golden.component_audit`.
+- **Proposition sstar.** $B_c$ is now defined as the number of interface edges at coarseness $c$.
+- **Orientation matrix of the Chair44.**
+  - "The minimal polynomial divides $x(x-8)(x-2)$" now says "is $x(x-8)(x-2)$". All three roots occur, so the two statements are equivalent, and the paper now says the sharper one.
+  - "Both need an inflation that is a Pisot number" was wrong as written, because every integer above 1 is vacuously a Pisot number. It now says "an irrational Pisot number, with conjugates to supply a Euclidean internal space".
+- **Proof of Theorem hull.** The window offset was written $v-v'+(1,1,1)$, which mixes the scales. It now reads
+  $2^{-n}(v-v')+(1,1,1)$, in units of the level-$n$ lattice.
+- **Checked by hand and found correct, with no change needed:**
+  - Lemma axes, and the unrolling identity $x_n=y_0-2^ny_{n \bmod q}$, including the strict bound $|J_i|<2^q-1$ and $J_i\ne0$.
+  - The 2-adic limit $-y_0$.
+  - The stack line-length formula, and the 14 child cases.
+  - The subset-automaton recurrence $c(M)=28\cdot2^M-48$.
+  - The Parseval sum $\frac1{49}(1+\sum\frac{21}{4}8^{1-J})=\frac17$.
+  - The trace check of $\sum H_i=2I$.
+  - The orientation-sum values against $|S|^2/N$, and the minimal polynomial of $c^2$, by sympy.
+  - The contact-matrix parity, the chair face counts and the interface lengths $4^{n+1}-4\cdot2^n$.
+  - The nets, and the cube's 384 spanning trees.
+  - Every bibliography entry is cited.
+- **Build.** The selftest passes. pdflatex ×3 on the paper, the note and the supplement gives no overfull boxes, no undefined references and no errors.
