@@ -296,6 +296,18 @@ def run_tests(verbose=True):
                     chk(abs(m - cls['means'][name]) <= Fraction(1, 2 ** 6) * max(1, abs(cls['means'][name]) + 1),
                         'finite line mean near the class mean %s %s' % (b, name))
         chk(corner_line_matches_cube(r['corner'][b]['classes'][0]['members'][0], b), 'corner line equals cube line %s' % (b,))
+    # the notch component d_z on two coordinate-axis corner lines: bounded sums on one, sums L on the other
+    for b, bounded in (((0, 0, 1), True), ((1, 0, 0), False)):
+        for j in r['corner'][b]['classes'][0]['members']:
+            _, seq = finite_line_mean(j, b, 12, 'notch_z')
+            sums = np.cumsum([obs['notch_z'][x] for x in seq])
+            if bounded:
+                chk(set(sums.tolist()) <= {0, 1, 2},
+                    'd_z sums bounded on the corner line (0,0,1)')
+            else:
+                chk(sums.tolist() == list(range(1, len(seq) + 1)), 'd_z sums equal L on the corner line (1,0,0)')
+    tz = [(int(st['sigma'][j, 0]), int(st['sigma'][j, b_index((0, 0, 1))])) for j in r['corner'][(0, 0, 1)]['classes'][0]['members']]
+    chk(len(set(tz)) == 2, 'tau_(0,0,1) sends its closed class onto two words')
     if verbose:
         print('chair44_lines:', 'ok' if ok else 'FAIL')
     return ok

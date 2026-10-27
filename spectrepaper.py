@@ -317,9 +317,12 @@ $s^{*}$ is a modelling choice and not a property of the tiling; given it, $s^{*}
 since $\nu$ is (Theorem~\ref{thm:bdy}).  And $s^{*}$ had to be derived rather than
 fitted: because the interface count depends on $T(c)$ and on $P(N-c)$ together,
 a single-exponent fit needs $c$ large and $N-c$ large at once, which no finite
-patch provides.  Fitting one anyway returns values that drift with depth and
-never settle --- and the closed form reproduces those drifting values, which is
-how we know the drift was the estimator and not the geometry.
+patch provides.  Fitting one anyway to the measured counts gives a growth of
+$2.66$ per level at depth~4 and $2.41$ at depth~5, against $\mu\approx1.859$.  The
+closed form of Proposition~\ref{prop:sstar}, with its Mystic term, matches those
+counts exactly at both depths, so it reproduces the same fitted values
+(\code{spectre\_boundary.py}), which is how we know the drift was the estimator
+and not the geometry.
 """, peak='%.2f' % F.get('boundary_z3_bounded').value[0], rows='\n'.join(rows),
         sstar=F.get('balanced_exponent').decimal)
 
@@ -343,7 +346,7 @@ Chair44~\cite{Tsiokos1} is a candidate three-dimensional einstein, claimed to fi
 tile is the seven-cube chair (a $2\times2\times2$ block less one corner) with each of its $24$ unit faces carrying eight
 small pyramids of signed heights.  Without the pyramids, the substitution of eight chairs on the doubled chair is the
 classical three-dimensional chair substitution~\cite{Robinson,LeeMoody}; the decorations select the frames of the
-children.  Its einstein property and strong aperiodicity are Tsiokos's claimed proof, quoted and
+children.  Its einstein property and strong aperiodicity rest on Tsiokos's claimed proof, which we quote and have
 not checked, and nothing below bears on them.  What is recomputed is the combinatorial atlas: \code{symchair44.py} generates
 the tile in exact rational arithmetic with no external data and agrees vertex for vertex with the published solid
 (\code{symchair44\_tests.py}, \code{chair44\_tests.py}); the Facts are in \code{chair44facts.py} and the supplement.
@@ -865,7 +868,12 @@ $\int f\,d\mu$ for $\mu$-almost every tiling.
 \noindent
 Proposition~\ref{prop:stack} and Table~\ref{tab:corner} are explicit instances for the directions $(1,1,1)$ and the others in
 $\{0,1\}^{3}$.  The failure depends on the observable and on the line: the corner lines all have $p$-mean $0$, and a
-coordinate-axis line can have bounded sums of $d_{z}$ while another has sums of $d_{z}$ growing like $L$.  Nothing here
+coordinate-axis line can have bounded sums of $d_{z}$ while another has sums of $d_{z}$ growing like $L$.  On the corner line
+in direction $(0,0,1)$, $\tau_{b}$ maps the four letters of its closed class onto two words $uv$ and $u'v'$, each letter of
+the closed class goes to $uv$ if it is a first letter of one of these two words and to $u'v'$ otherwise, and $d_{z}$ is $+1$ on $u,v$ and $-1$ on $u',v'$.
+So beyond the first level the line reads $uvu'v'uvu'v'\cdots$, $d_{z}$ runs $+1,+1,-1,-1,\dots$ and its sums stay in
+$\{0,1,2\}$.  On the corner line in direction $(1,0,0)$ every letter of the closed class has $d_{z}=1$, so the sums equal $L$
+(\code{chair44\_lines.py}).  Nothing here
 concerns directions that are not lattice directions: the cells met by a line of irrational slope are not an orbit of a
 subgroup of $\mathbb{Z}^{3}$, and the argument does not apply.
 """, labels=hu['labels'], cases=ln['tube']['cases'][0], rows=' \\\\\n'.join(rows) + ' \\\\')
@@ -1600,9 +1608,10 @@ they are compared here by exact computation.  The Spectre inflates by the unit $
 Its supertile perimeter is $2F_{3k+5}+4$ at every order $k$, proved by a finite exact certificate, so it grows by
 the unit $2+\sqrt5$ of $\mathbb{Q}(\sqrt5)$, faster than the linear inflation.  The boundary of the limiting supertile
 is a fractal of box dimension $\log(2+\sqrt5)/\log\lam$, and the tail of the common-ancestor levels of neighbouring
-tiles decays with ratio tending exactly to $\nu/\lam^{2}$.  The inflation acts
-on the vertex module $\mathbb{Z}^{4}$ with two expanding and two contracting directions, and the internal plane is given
-exactly; the window is the attractor of contracting similarities and has positive area, and the seams where its pieces
+tiles decays with ratio tending exactly to $\nu/\lam^{2}$.  In the coordinates of the rank-four
+vertex module $\mathbb{Z}[\zeta_{12}]$, one level of the inflation is a $16\times16$ integer matrix on four key points, with
+expanding eigenvalues $\pm\lam$, contracting $\pm\lam^{-1}$ and marginal $\pm1$, and the internal plane, the projection
+along the expanding plane of each parity of level, is given exactly; the window is the attractor of contracting similarities and has positive area, and the seams where its pieces
 meet have box dimension $\log(5+2\sqrt6)/\log(4+\sqrt{15})$, a lower bound for the dimension of its boundary.  The Chair44 inflates by the integer $2$ on $\mathbb{Z}^{3}$, with no Euclidean internal space (its internal
 space is $2$-adic) and no twist; its centre set, that of the classical three-dimensional chair, has an explicitly computed
 pure-point diffraction measure.  The main result is that every lattice-registered tiling obeying the $44$ contact rules
@@ -1627,9 +1636,10 @@ def introduction():
 A tiling that exists only by inflation carries an arithmetic: the number by which it inflates, the field that number
 generates, and what that field leaves behind.  The Spectre of Smith, Myers, Kaplan and Goodman-Strauss~\cite{SmithEtAl,SmithEtAl2}
 inflates by a unit of a real quadratic field, and the Chair44 of Tsiokos~\cite{Tsiokos1} by the integer $2$.  The
-Spectre's vertices lie in $\mathbb{Z}[\zeta_{12}]$, a module of rank four, on which the inflation acts as an integer matrix
-with eigenvalues $\pm\lam$ and $\pm\lam^{-1}$: the two contracting directions form an internal space in which the vertices
-fill a bounded window.  An integer inflation $m>1$ acts as $mI$, nothing contracts, and the internal space is $m$-adic.
+Spectre's vertices lie in $\mathbb{Z}[\zeta_{12}]$, a module of rank four, and one level of the inflation, acting on four key points of a
+supertile, is an integer matrix with eigenvalues $\pm\lam$, $\pm\lam^{-1}$ and $\pm1$: projecting along the expanding
+plane, which alternates with the parity of the level, gives a two-dimensional internal space in which the vertices fill
+a bounded window.  An integer inflation $m>1$ acts as $mI$, nothing contracts, and the internal space is $m$-adic.
 This paper computes that difference exactly.
 
 A companion note~\cite{BangNote} states the physical hypothesis that motivated this work; nothing here depends on it.
@@ -1648,7 +1658,7 @@ Spectre's substitution hierarchy can serve as a clock.
 What is not claimed matters as much.  The inputs are these.  For the Spectre: the published substitution rule of
 \cite{SmithEtAl2}, that is, the matrix~\eqref{eq:M} together with the placement transforms of the construction, from which
 every placed patch is built.  For the Chair44: Tsiokos's solid and its eight substitution children~\cite{Tsiokos1}.  The
-einstein property of the Chair44 is Tsiokos's claimed proof~\cite{Tsiokos1}, quoted.  The hull theorem of
+einstein property of the Chair44 rests on Tsiokos's claimed proof~\cite{Tsiokos1}, quoted.  The hull theorem of
 Section~\ref{sec:hull} is proved for tilings obeying the contact rules, using Kamenetsky's unique-hierarchy
 criterion~\cite{Kamenetsky} with its finite certificate checked independently (Lemma~\ref{lem:hier}), and for the solid it rests in addition on Tsiokos's registration
 theorem~\cite{Tsiokos1}, quoted; that proof has been audited by the second author~\cite{Romanov} but has not been refereed.
@@ -1834,8 +1844,8 @@ for a smooth curve, while the area grows by $2^{@ea@}$.  The boundary is not a s
 Theorem~\ref{thm:window} its lower box dimension exceeds $1$; a box count at these resolutions gives about $1.2$, a
 crude estimate, against the exact $1.111$ of the seams.  It is not the dimension $\log\nu/\log\lam$ of the supertile outline in the physical plane
 (Section~\ref{sec:bdyop}).  It agrees with the windows of Rauzy type that Baake, G\"ahler, Mazá\v{c} and Sadun
-obtain~\cite{BaakeHat,BaakeSpectre}, who prove that Spectre tilings arise from a $4{:}2$ cut-and-project scheme with such
-windows; the analogous statement for the Hat family is~\cite{BGS}.  Whether anything like this exists for a
+obtain~\cite{BaakeHat,BaakeSpectre}, who prove that the Spectre tilings are mutually locally derivable from model sets of a
+$4{:}2$ cut-and-project scheme with such windows; the analogous statement for the Hat family is~\cite{BGS}.  Whether anything like this exists for a
 three-dimensional tile is the question raised by Kamenetsky~\cite{Kamenetsky}, who finds that the obvious
 four-dimensional analogues of the Chair44 fail a closure test; the integer inflation of the chair leaves nothing to project.
 @FIGLIFT@
@@ -1904,8 +1914,9 @@ Take one point per chair, the centre of its bounding cube, and call the set at d
 $X_{n}=2X_{n-1}\cup(B_{n}\setminus B_{n}')$, where $B_{n}$ is the set of odd points of the cube $[1,2^{n+1}-1]^{3}$ and
 $B_{n}'$ the odd points with every coordinate above $2^{n}$ (the corner octant); the recursion reproduces the placed
 patch for $n\le4$.  The structure factor is a finite sum of products of geometric series and equals the direct sum over
-the centres (relative difference @cd@).  At the dyadic wave vectors $k=2\pi m/2^{J}$, $m$ not all even, its limit is the
-exact amplitude
+the centres (relative difference @cd@).  At the dyadic wave vectors $k=2\pi m/2^{J}$, $m$ not all even, its limit per
+centre, $a(k)=\lim_{n}8^{-n}\sum_{x\in X_{n}}e^{ik\cdot x}$ (so $a(0)=1$, and the Bragg intensity is $|a(k)|^{2}$ times the
+squared density $1/49$), is the exact amplitude
 \[
 a(k)=\tfrac78\,8^{1-J}\bigl(\pm1+\tfrac17\bigr),
 \]
@@ -2197,7 +2208,7 @@ Section~\ref{sec:hier} are negative or generic.
 
 What the Facts do not reach is as follows.  The Spectre results take the published substitution rule (matrix and placement
 transforms) as input, and the Chair44 results Tsiokos's solid and substitution.  The einstein property and aperiodicity of
-the Chair44 are Tsiokos's claimed proof, quoted and not checked \cite{Tsiokos1}.  The hull theorem and the symmetry
+the Chair44 rest on Tsiokos's claimed proof, which we quote and have not checked \cite{Tsiokos1}.  The hull theorem and the symmetry
 classification of Section~\ref{sec:hull} are proved for tilings obeying the $44$ contact rules, from Kamenetsky's
 unique-hierarchy criterion (Lemma~\ref{lem:hier}, its finite certificate checked independently) and from the count of admissible blocks of
 Lemma~\ref{lem:blocks}, which the build of this paper does not repeat but which an independent implementation reproduces;

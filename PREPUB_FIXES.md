@@ -116,9 +116,40 @@ now self-contained and no longer cites BGMS for regularity.
 
 ## Not changed
 
-- The upper bound for ∂W (option (a) of the report) is not proved. Checked in this round: the internal coordinates of
-  `spectre_window.py` are a projection along the expanding planes E_p, and no Galois embedding of Z[ζ12] vanishes on
-  E_0 or E_1 (|σ(e)| ≥ 1.48 for σ = 5, 7, 11 on the basis vectors). So the published model-set coverings (BGMS for
-  CASPr, with a Galois star map) do not apply to W without the identification the paper already says is missing. A
-  covering of internal space by translates of W in this cut-and-project scheme would be a new theorem. Option (b),
-  stating only what is proved, stands.
+- The upper bound for ∂W (option (a) of the report) is not proved.
+  - The internal coordinates of `spectre_window.py` are a projection along the expanding planes E_p. That projection is
+    not a Galois star map: no Galois embedding of Z[ζ12] (σ = 5, 7, 11) vanishes on E_0 or E_1, and neither does the
+    physical one (|σ(e)| ≥ 1.48 on the basis vectors).
+  - BGMS show that the CASPr tilings are mutually locally derivable from model sets; they do not use this projection.
+    A covering of internal space by translates of W would follow from their work only once W is identified with their
+    window, which the paper already says is missing.
+  - Their window-boundary value is a Hausdorff dimension, which does not bound the upper box dimension of ∂Z_p(S), so
+    even with the identification it would not give option (a) by itself.
+  - Option (b), stating only what is proved, stands.
+
+## Second and third review rounds
+
+A fresh adversarial pass over the fixed paper found the following. All are fixed on this branch.
+
+- **R2-1 to R2-7** (round 2):
+  - the exact interface law, with its Mystic term, replaces the approximate one in `spectre_boundary.py`, and the selftest
+    checks it at depths 3 and 4 (depth 5 was checked separately);
+  - the paragraph after Proposition `sstar` gives the measured drift (2.66 at depth 4, 2.41 at depth 5, against μ ≈ 1.859)
+    and says that the exact closed form reproduces it;
+  - three places that called Tsiokos's result proved now say it rests on his claimed proof, which is quoted and not
+    checked here;
+  - the remaining round-2 items were wording fixes; R2-5 needed no change.
+- **Corner lines.** The bounded/linear behaviour of the d_z sums on the (0,0,1) and (1,0,0) corner lines is now argued in
+  the text (the d_z values on the closed class run +1,+1,−1,−1,…, so the sums stay in {0,1,2}; on (1,0,0) every letter has
+  d_z = 1, so the sums equal L). `chair44_lines.py --tests` now checks both and that τ_(0,0,1) sends its closed class onto
+  two words.
+- **Centre diffraction (round 3).** Fact `centrediff` now defines the amplitude a(k) = lim 8⁻ⁿ Σ_{x∈X_n} e^{ik·x}, so
+  a(0) = 1, and the Bragg intensity is |a(k)|² times the squared density 1/49. Before, the normalisation was left implicit
+  and Σ I = 1/7 did not follow from the text.
+- **References.** Every arXiv entry was checked against its arXiv record (authors, titles, journal references for
+  BaakeSpectre, BGS and BaakeHat). The numbers the paper quotes from Kamenetsky (Problem 9.1, 2187, 3 closed at cap 300,
+  30→44→44, plateau 1566, structured family 158) match the arXiv text. The Chéritat–Ma web page could not be fetched from
+  this environment (the proxy returns 403), so that entry is unverified.
+- **Supplement.** Its counts (25 numbered Facts, 71 ledger entries, 24 Lean-marked, 67 theorems) match the paper, the
+  ledgers and `SpectreFacts.lean`. Its rows for `chair_lines`, `centre_diffraction` and `internal_plane` agree with the
+  paper.
