@@ -922,7 +922,9 @@ Tsiokos's formal proof of it~\cite{Tsiokos1} has also been rebuilt from source i
 succeeds, and the dependency report of the theorem lists only the three standard axioms of the proof assistant and named
 decision steps evaluated by its compiler, whose results are trusted as well as its kernel; the $162$ reports printed by the
 rebuild agree, theorem by theorem and up to a namespace prefix, with the published log, and the log left by the build equals the published one byte
-for byte (\code{lean\_rebuild/}).  A build shows that the formal statement holds; that the formal statement says what
+for byte (\code{lean\_rebuild/}).  The $67$ proof files of the build differ from the externally delivered proofs only in
+marked compile fixes, and no delivered statement is changed beyond notation (\code{lean\_rebuild/discharge\_audit\_indep.py},
+written independently of the project's own audit).  A build shows that the formal statement holds; that the formal statement says what
 (R) says is a reading of it, not a computation.  It has not been refereed.
 \item[(H)] Every atlas tiling $T$ partitions uniquely into complete level-$1$ supertiles, which form an atlas tiling $D(T)$
 with $T=\sigma(D(T))$.  This is Kamenetsky's Proposition~7.1~\cite{Kamenetsky} applied to the Chair44, and Tsiokos
@@ -1655,10 +1657,10 @@ homochiral assignments are coarsening-closed with at most $300$ contact poses, K
 contacts), was run on $12{,}784$ further four-dimensional assignments.  Half of them extend the three-dimensional marking
 on a facet, and half are random.  The test stops at $400$ contact poses, and every one of them reached that cap, so none
 is coarsening-closed with fewer than $400$ poses.  A simulated-annealing search on Kamenetsky's statistic
-$|\Sigma(P_{0})|$, which in three dimensions is minimised exactly by the closed assignments ($44$), made about $12{,}100$
-further evaluations.  It got from his random-start plateau of $1566$ down to $273$, which is still above the value $158$
-of his structured families and never near a closed value; the question stays open.  The search code and its logs are
-not part of this paper's build and are not reproduced here.
+$|\Sigma(P_{0})|$ made $12{,}132$ further evaluations.  It got from his random-start plateau of $1566$ down to $273$,
+which is still above the value $158$ of his structured families, and it found no closed assignment; the question stays
+open.  The search code and its logs are in \code{nd\_search/}; they are not part of this paper's build and were not
+rerun for it.
 
 
 \appendix

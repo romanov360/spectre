@@ -59,6 +59,11 @@ now self-contained and no longer cites BGMS for regularity.
 - 1566 is now called Kamenetsky's random-start plateau, and 273 is said to be above his structured-family value of 158.
 - The 400-pose cap of the test is stated, and so is the ≤300 cap in Kamenetsky's Theorem B.
 - The paper now says that the search records are not part of its build.
+- The search code and logs are now in `nd_search/` (copied unchanged from the authors' working repository), with a
+  README. The counts are checked against the logs: 4288+4212+4284 = 12,784 assignments in the search and
+  2399+3208+3424+3101 = 12,132 evaluations in the annealing. The paper now says 12,132 rather than "about 12,100".
+- The claim that the 3D score is minimised exactly by the closed assignments was not verifiable without running the
+  external code, so it is removed.
 
 **M5. Lean rebuild.**
 - The paper now says that the 162 regenerated reports agree with the published log theorem by theorem, up to the
@@ -66,7 +71,14 @@ now self-contained and no longer cites BGMS for regularity.
   - I checked this by fetching `lean/R44/build_axioms.log` at `d53d224` from GitHub. It is identical to
     `committed_axioms_log` in `r44_build_result.json` (53,556 bytes).
 - A sentence on statement fidelity is added, and so is one on trusting the compiler.
-- `lean_rebuild/README.md`: the diff-audit row now says that its output was not saved. The audit was not re-run here.
+- `lean_rebuild/README.md`: the old diff-audit row now says that its output was not saved.
+- The statement-fidelity claim is now checked by `lean_rebuild/discharge_audit_indep.py`, written for this review
+  without importing the project's audit script. Output: `lean_rebuild/out_discharge_audit_indep.txt`.
+  - All 67 Proved files differ from the newest delivery containing them only in marked compile-fix hunks.
+  - 76 declaration texts differ. All are notation (parentheses, `|x|` to `abs`, `section` to `«section»`, spacing),
+    five structure-valued `theorem`s that became `def`s, one delivered `sorry` placeholder replaced by a call to the
+    proved theorem of the same statement, or added helper lemmas.
+  - The paper now says this, citing the script.
 - The misleading comment in `r44_build.py` is corrected.
 
 ## Minor
@@ -104,6 +116,9 @@ now self-contained and no longer cites BGMS for regularity.
 
 ## Not changed
 
-- The upper bound for ∂W (option (a) of the report) is not attempted.
-- The 4D search counts (12,784; about 12,100) are still unverified. The paper now says that the records are outside
-  its build.
+- The upper bound for ∂W (option (a) of the report) is not proved. Checked in this round: the internal coordinates of
+  `spectre_window.py` are a projection along the expanding planes E_p, and no Galois embedding of Z[ζ12] vanishes on
+  E_0 or E_1 (|σ(e)| ≥ 1.48 for σ = 5, 7, 11 on the basis vectors). So the published model-set coverings (BGMS for
+  CASPr, with a Galois star map) do not apply to W without the identification the paper already says is missing. A
+  covering of internal space by translates of W in this cut-and-project scheme would be a new theorem. Option (b),
+  stating only what is proved, stands.
