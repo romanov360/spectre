@@ -275,3 +275,14 @@ A full re-read of the regenerated paper, checking every number and every proof s
   - The nets, and the cube's 384 spanning trees.
   - Every bibliography entry is cited.
 - **Build.** The selftest passes. pdflatex ×3 on the paper, the note and the supplement gives no overfull boxes, no undefined references and no errors.
+
+## Eighth review round
+
+- Companion note: the "artefact of the two examples" retirement condition now records that a planar
+  counterexample of the other kind already exists (the Socolar–Taylor hexagonal monotile, inflation $2$,
+  model sets with a $2$-adic internal space, Lee–Moody 2013), and states that the dichotomy can survive it
+  only as a claim about connected tiles whose shape alone forces aperiodicity.
+- Note bibliography: added `SocolarTaylor` (JCTA 118 (2011) 2207–2231) and `LeeMoodyTS` (Symmetry 5 (2013)
+  1–46), both checked; fixed missing punctuation after the Smith et al. title and after "B.~Hartshorn".
+- Main paper and supplement checked for claims conflicting with the Taylor–Socolar example: none.
+- Selftest: all checks pass; three documents: 0 overfull, 0 undefined, 0 errors.
