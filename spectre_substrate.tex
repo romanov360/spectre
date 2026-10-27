@@ -1000,16 +1000,16 @@ in its substitution, a $4\times4\times4$ block, are legal.
 \end{lem}
 
 \noindent
-A third implementation, written from the definitions for a referee review of this paper and sharing no code with the
-others, derives the $44$ contacts from Tsiokos's pyramid data and reproduces 360{,}189 admissible blocks, $15{,}214$ orbits and
-no illegal child window, checking every block and not only orbit representatives
-(\code{hierarchy\_certificate/chair44\_blocks\_indep.py}, with its output).
-It is the second author's computation (\code{chair44\_vertex\_blocks.py} and \code{chair44\_hull\_prune.py}, on the atlas
-published with~\cite{Tsiokos1}), repeated by an independent implementation that derives the atlas from the pyramid
+The count is the second author's computation, with \code{chair44\_vertex\_blocks.py} and \code{chair44\_hull\_prune.py} on the atlas
+published with~\cite{Tsiokos1}.  It is repeated by an independent implementation that derives the atlas from the pyramid
 geometry and, separately, from the eight children alone, and published as a certificate of $O$-orbit representatives with a
 stand-alone verifier~\cite{Romanov}.  \code{chair44\_hull\_admissible.py} repeats the count with the $44$ contacts that
 \code{symchair44.py} derives from its own labels; this is independent code on the same eight children, which define the
-tile.  The lemma is not vacuous: enlarging the atlas by the five non-atlas contacts of a single violating block yields
+tile.  A further implementation, written from the definitions during a referee review of this paper and sharing no code with the
+others, derives the $44$ contacts from Tsiokos's pyramid data and reproduces 360{,}189 admissible blocks, $15{,}214$ orbits and
+no illegal child window, checking every block and not only orbit representatives
+(\code{hierarchy\_certificate/chair44\_blocks\_indep.py}, with its output).
+The lemma is not vacuous: enlarging the atlas by the five non-atlas contacts of a single violating block yields
 $360{,}213$ admissible blocks and $24$ failures.  The count runs for minutes, so the build of this paper does not repeat it.
 
 \begin{thm}
@@ -1683,7 +1683,7 @@ the Chair44 rest on Tsiokos's claimed proof, which we quote and have not referee
 proves the absence of periods only given his registration theorem.  The hull theorem and the symmetry
 classification of Section~\ref{sec:hull} are proved for tilings obeying the $44$ contact rules, from Kamenetsky's
 unique-hierarchy criterion (Lemma~\ref{lem:hier}, its finite certificate checked independently) and from the count of admissible blocks of
-Lemma~\ref{lem:blocks}, which the build of this paper does not repeat but which an independent implementation reproduces;
+Lemma~\ref{lem:blocks}, which the build of this paper does not repeat but which three further implementations, described after the lemma, reproduce;
 for tilings by the solid they rest in addition on Tsiokos's registration theorem, quoted, audited by the second author (its
 written steps checked, all of its finite inputs recomputed), and not refereed.  The counts of legal blocks and fixed seeds
 are recomputed.  That the Spectre diffraction is pure point is a published theorem and is quoted.  The perimeter recurrence

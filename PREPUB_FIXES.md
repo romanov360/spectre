@@ -303,3 +303,13 @@ A full re-read of the regenerated paper, checking every number and every proof s
   bound, dimensions, minimal polynomials, chair interface counts, automaton counts, Theorems 4–5, Facts
   20–25). No mathematical errors were found.
 - Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
+
+## Tenth review round
+
+- Lemma 2: the paragraph after the lemma now lists the implementations in order: the original computation,
+  the certificate implementation, `chair44_hull_admissible.py`, then the referee's `chair44_blocks_indep.py`,
+  followed by the non-vacuity check. Reworded to remove an overfull line.
+- §11: "an independent implementation reproduces" Lemma 2 corrected to "three further implementations,
+  described after the lemma, reproduce", which matches §7.4.
+- Re-read the whole main paper against its ledgers (§§1–11, references). No other errors were found.
+- Selftests (paper and supplement): all checks pass. The three documents: 0 overfull, 0 undefined, 0 errors.
