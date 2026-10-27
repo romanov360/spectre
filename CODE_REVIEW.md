@@ -260,3 +260,19 @@ Runs (all on this branch, clean tree):
 - The cut/hinge count: `cutn = E − F + 1 = 48 − 24 + 1 = 25`, which is correct for a spanning tree of the 24-face dual
   graph.
 - `|F(0)|² = 64ⁿ` in the slice figures equals N² with N = 8ⁿ, so it is correct.
+
+## Re-run results (referenced above)
+
+- `boundary_certificate/check_spectre_fractal.py` and `spectre_window.py`: re-run outputs are byte-identical to
+  `out_spectre_fractal.txt` and `out_spectre_window.txt`.
+- `python3 -I hierarchy_certificate/chair44_blocks_indep.py ../chair44_data/r44_solid.json` (13 min 17 s): output is
+  identical to `out_chair44_blocks_indep.txt` except the timing lines:
+  - 2388/1194/44 contacts, |P0| = 30;
+  - primitive at power 3; depth-3 coincidence, 336 of 512 addresses;
+  - 1410 legal blocks; 27 fixed seeds with stabilisers {1: 24, 8: 3};
+  - 360,189 admissible blocks, 15,214 orbits, 0 illegal child windows.
+
+  The numbers are right; finding #2 is only that no code asserts them.
+- `python3 spectrepaper.py` and `python3 spectre_supplement.py` regenerate `spectre_substrate.tex`,
+  `spectre_bigbang_note.tex` and `spectre_supplement.tex` byte-identical to the committed files, so the `.tex` files
+  are generated and not hand-edited. The PDFs were not rebuilt.
