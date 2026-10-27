@@ -191,3 +191,26 @@ Every proof and computed claim in the paper was read again against the code. The
   positions) are corrected.
 - **Build.** The selftest passes, pdflatex ×3 gives 32 pages, and there are no overfull boxes and no undefined
   references. The `chair44_lines`, `chair44_unfold` and `chair44_slice` tests pass.
+
+## Fifth review round
+
+- **Abstract.** It used ν before defining it. It now says $(2+\sqrt5)/\lambda^2$.
+- **Introduction.** The description of Propositions said they are "computations with a modelling step". Several are
+  proved. It now says they are narrower in scope, proved or computed, with their hypotheses stated in them.
+- **Boundary closed form.** "Multiplying the Fibonacci index by three" now reads "advancing". The "third root of
+  x²−4x−1" (a quadratic) now reads "the remaining root of (x−1)(x²−4x−1), the conjugate of φ³".
+- **Direction characters.** "The remaining two characters of Z/6" now names them: the Z/3 and faithful characters, each
+  up to complex conjugation, which matches the table caption.
+- **Orientation spectrum.** The rate (2/8)^d used d, which already denotes the dimension. It is now (2/8)ⁿ in the depth n.
+- **Unfolding.** ℓ was used without a definition. It is now defined as the tile scale: √(tile area) for the Spectre and
+  7^{1/3} for the chair, as in `chair44_findings.py`.
+- **Lines section.** "Everything below is an exact finite computation" is not right for the proved propositions. It now
+  reads "proved from, or is, an exact finite computation".
+- **Notch mean.** "The chair's is exactly 2ⁿ" now reads "exactly 2ⁿ in each component".
+- **Fine boundary operator.** The conclusion claimed something about the components by species and edge index that the
+  body never stated. A paragraph now gives it, rerun with `spectre_golden.py` here:
+  - there are 52 edge types, and 34 of them obey the recurrence after the first term;
+  - 14 are bounded and have period 2;
+  - (Π,3) and (Π,4) give 1, 7, 22, 91, 378, 1599, which obeys neither the recurrence nor its order-4 extension.
+- **Build.** The selftest passes, pdflatex ×3 gives 32 pages, and there are no overfull boxes and no undefined
+  references.

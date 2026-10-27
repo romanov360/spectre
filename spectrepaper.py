@@ -230,10 +230,10 @@ It follows from the recurrence by induction, because
 $F_{n+6}=4F_{n+3}+F_{n}$ makes $2F_{3k+5}+4$ satisfy the same recurrence and the seeds
 agree.  It says three things
 that the recurrence did not.  The growth
-$\nu=\varphi^{3}$ is one Spectre level multiplying the Fibonacci index by three,
+$\nu=\varphi^{3}$ is one Spectre level advancing the Fibonacci index by three,
 which is how the golden unit arises.  The marginal eigenvalue $+1$ is the
-constant $4$, so $(P(k)-4)/2$ is every third Fibonacci number.  And the third
-root of $x^{2}-4x-1$ is $2-\sqrt5=-\varphi^{-3}$, which is negative, so that
+constant $4$, so $(P(k)-4)/2$ is every third Fibonacci number.  And the remaining
+root of the characteristic polynomial $(x-1)(x^{2}-4x-1)$, the conjugate of $\varphi^{3}$, is $2-\sqrt5=-\varphi^{-3}$, which is negative, so that
 component alternates in sign with the parity of the level.  That is the same
 parity that flips the determinant of the placement matrix, but any quantity
 alternating with level parity does so, and this is weak evidence of a link to
@@ -254,8 +254,8 @@ counted on the placed tiling through $k=6$,
 %
 whose sum doubled is $P(k)$.  The difference of the two totals is exactly
 $F_{3k+2}$, which is the amplitude of the $\mathbb{Z}/2$ character in
-Table~\ref{tab:dirs}.  The remaining two characters of
-$\mathbb{Z}/6=\mathbb{Z}/2\times\mathbb{Z}/3$ stay bounded:
+Table~\ref{tab:dirs}.  The remaining characters of
+$\mathbb{Z}/6=\mathbb{Z}/2\times\mathbb{Z}/3$, the $\mathbb{Z}/3$ and faithful ones (each up to complex conjugation), stay bounded:
 their largest amplitude over $k\le6$ is @peak@.  The group $\mathbb{Z}/6$ is the one that acts on the hexagonal directions of the tiling, and the data identify the group, not the action.
 
 \begin{table}[h]
@@ -283,6 +283,14 @@ closed form: $F_{3k+4}+F_{3k+3}+2=P(k)/2$.  The boundedness of
 the other characters is an observation.  The directions are counted with the
 fork's own tile builder, so this is a count and not an independent second
 route.
+
+\textbf{The fine decomposition.}  Resolved by species and edge index, the boundary has $52$ edge types,
+and counted on placed tiles for $k\le6$ (\code{spectre\_golden.py}) only $34$ of them satisfy the recurrence of
+Theorem~\ref{thm:bdy} after the first term.  Of the other $18$, $14$ are bounded and of period two, such as
+$1,2,1,2,1,2$, and the rest grow without obeying it or its obvious order-four extension: the edges $3$ and $4$
+of $\Pi$ both give $1,7,22,91,378,1599$, whose ratios still approach $\nu$.  The operator of
+Theorem~\ref{thm:bdy} is exact for the aggregates; the operator on the fine types is larger, and its
+spectrum below $\nu$ is not determined by these orders.
 
 \subsection{The balanced exponent}
 \label{sec:sstar}
@@ -448,7 +456,7 @@ $F$-oriented chair that are $F'$-oriented.  The characteristic polynomial is
 $@charpoly@$, the minimal polynomial divides $x(x-8)(x-2)$, every row and column sums to
 $8$, and $\operatorname{rank}M^{n}=@orank@$ for all $n\ge1$.  The zero sector is
 semisimple, there is no negative eigenvalue, and orientation frequencies converge to $1/24$
-at the rate $(2/8)^{d}$ in the depth $d$.  The Spectre's matrix is the opposite on each
+at the rate $(2/8)^{n}$ in the depth $n$.  The Spectre's matrix is the opposite on each
 count: a Pisot unit, irrational frequencies and a zero sector with a Jordan pair.  The
 consequence is a narrowing.  The Pisot route to pure-point diffraction and the
 irrational-frequency witness of aperiodicity (Section~\ref{sec:spectral}) both need an inflation
@@ -814,7 +822,7 @@ def lines_subsection():
 
 Corollary~\ref{cor:hull} says that every finite patch has a frequency, reached uniformly by boxes of side $L$ in every
 tiling.  It is tempting to read this as a statement about any scan of a tiling, for instance the sum of an observable
-along a line of cells.  It is not, and this subsection says what is true.  Everything below is an exact finite computation
+along a line of cells.  It is not, and this subsection says what is true.  Everything below is proved from, or is, an exact finite computation
 (\code{chair44\_lines.py}) except the last proposition, which is conditional on the internal space of
 Corollary~\ref{cor:hull}.
 
@@ -1015,7 +1023,7 @@ orientation, a sum rule of the form $\sum H_{i}=\lambda I$ is not available in t
 the two-level recursion of Fact~\ref{fact:orientrec}.
 
 Where the power goes is asked with a deliberately loose statistic: the median of $I(k)/N$ over $300$ fixed random wave
-vectors, with $k$ in the box $[0,2\pi/\ell]^{d}$, against the number of tiles.  It falls in both, as $N^{@s_s@}$ for the Spectre
+vectors, with $k$ in the box $[0,2\pi/\ell]^{d}$ and $\ell$ the tile scale (the square root of the tile area for the Spectre, $7^{1/3}$ for the chair), against the number of tiles.  It falls in both, as $N^{@s_s@}$ for the Spectre
 centroids and $N^{@s_c@}$ for the Chair44 centres, and as $N^{@s_sw@}$ and $N^{@s_cw@}$ with orientation weights: the intensity
 is concentrated on few wave vectors, as in a Bragg spectrum, and faster for the chair, whose centres lie on a lattice with
 defects.  Figure~\ref{fig:chaircompare} and Table~\ref{tab:unfold} gather the comparison.
@@ -1634,7 +1642,7 @@ have hierarchical tilings, and they are compared here by exact computation.  The
 Its supertile perimeter is $2F_{3k+5}+4$ at every order $k$, proved by a finite exact certificate, so it grows by
 the unit $2+\sqrt5$ of $\mathbb{Q}(\sqrt5)$, faster than the linear inflation.  The boundary of the limiting supertile
 is a fractal of box dimension $\log(2+\sqrt5)/\log\lam$, and the tail of the common-ancestor levels of neighbouring
-tiles decays with ratio tending exactly to $\nu/\lam^{2}$.  In the coordinates of the rank-four
+tiles decays with ratio tending exactly to $(2+\sqrt5)/\lam^{2}$.  In the coordinates of the rank-four
 vertex module $\mathbb{Z}[\zeta_{12}]$, one level of the inflation is a $16\times16$ integer matrix on four key points, with
 expanding eigenvalues $\pm\lam$, contracting $\pm\lam^{-1}$ and marginal $\pm1$, and the internal plane, the projection
 along the expanding plane of each parity of level, is given exactly; the window is the attractor of contracting similarities and has positive area, and the seams where its pieces
@@ -1671,7 +1679,8 @@ This paper computes that difference exactly.
 A companion note~\cite{BangNote} states the physical hypothesis that motivated this work; nothing here depends on it.
 Statements are stratified.  \emph{Facts} are exact statements: each is proved, or verified by an exact finite computation
 and then stated only for the range computed, or quoted, and the text says which; the supplement lists the ledger entries behind
-the Facts, with the method by which each was obtained.  \emph{Propositions} are computations with a modelling step, and \emph{Theorems},
+the Facts, with the method by which each was obtained.  \emph{Propositions} are results of narrower scope, proved or computed, whose modelling steps and hypotheses are
+stated in them (a thickening in Proposition~\ref{prop:sstar}, ergodic structure in Proposition~\ref{prop:lineaction}), and \emph{Theorems},
 \emph{Lemmas} and \emph{Corollaries} carry proofs.  Results labelled \emph{computation, not Fact} are numerical, on finite
 patches, and enter no ledger.
 
@@ -1968,7 +1977,7 @@ route, a cut-and-project scheme with an internal space for the Spectre and a dya
 
 \subsection{Orientation sums and their channels}
 
-Section~\ref{sec:unfold} measured the sum of the orientation vectors of both tilings.  The chair's is exactly $2^{n}$.  For the
+Section~\ref{sec:unfold} measured the sum of the orientation vectors of both tilings.  The chair's is exactly $2^{n}$ in each component.  For the
 Spectre it can now be written as a recursion.
 
 \begin{fact}[The orientation recursion]
@@ -2254,7 +2263,7 @@ constant is identified and not proved, the window theorem (Theorem~\ref{thm:wind
 whose upper bound would need a covering of internal space by windows that is not proved here, the weighted diffraction of the
 chair is only numerically consistent with pure point, and the Hat and Turtle diffraction is one patch with one window.
 The boundary operator governs the perimeter in the aggregate at every order; resolved by species and edge index, on the orders counted, a
-handful of components obey neither it nor its obvious extensions, while their ratios still approach $\nu$, and the full fine operator is not claimed.  The hierarchy results are numerics on finite
+few components obey neither it nor its obvious extensions, while their ratios still approach $\nu$, and the full fine operator is not claimed.  The hierarchy results are numerics on finite
 patches, with controls, and are not Facts.
 
 One further problem remains open: a four-dimensional analogue of the chair, Kamenetsky's Problem~9.1~\cite{Kamenetsky}.
