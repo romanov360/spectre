@@ -29,8 +29,13 @@ PR #14 was merged on 2026-11-08. This file lists what has been added since then.
 - The main spectral gap survives the vortex flux.
 - All Bott indices are zero, as time-reversal symmetry requires.
 
+### R7: the genus of the sealed surface is not robust
+
+- We swept depth 2–3, voxel 0.75/1.5, blend 1.5/3/5/8 and thickness 0.2/0.3/0.4 (job 1715742, `research/genus_sweep.py`). Every surface was sealed, oriented and manifold.
+- Thickness doesn't change the genus. The blend radius does. At depth 2 the genus is 0, 0, 7, 0 for blend 1.5, 3, 5, 8. At depth 3 it is 0, 1, 62, 8, and at blend 5 the surface splits into 7 components.
+- So the genus of `spectreseal` is an artefact of the smoothing, not an invariant of the tiling. It should not be quoted as one.
+
 ## Still open
 
-- **R7, genus sweep of `spectreseal`:** still running. The earlier runs failed because a dependency was missing; this run installed it successfully. The result will be added to this PR.
 - **R8 with complex π/2 flux:** not yet started.
 - **Item B:** parked.

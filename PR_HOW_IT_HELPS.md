@@ -47,7 +47,7 @@ This PR builds on Brent's ribbon and holonomy work (`spectre_holonomy.py`, `spec
 
 ## Still running
 
-R7 (genus sweep). The earlier runs failed while installing a missing dependency, and it has been rerun. Its result will be added to this PR as a follow-up commit.
+Nothing. R7 (genus sweep) is done: the sealed-surface genus depends on the smoothing (blend) radius, so it is not a tiling invariant.
 
 ## Reproducing
 

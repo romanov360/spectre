@@ -504,4 +504,4 @@ The "Recommended order" sections above are out of date. Most of R1–R8 and R11 
   - For k = 0..6 (up to 1,835,008 cells), the level-k identity-frame Chair44 supertile equals its image under the x ↔ y mirror, with tile frames conjugated. This was tested as exact set equality.
   - This explains X_k ≡ 0: the Chair44 supertiles are achiral, so every pseudoscalar of them vanishes. The Spectre's handedness (item A) has no analogue in Chair44.
   - What would upgrade this to a proof: show that the substitution commutes with the mirror on the 3888 collared types. The check above is the computational evidence for that.
-- **R7 (job 1715742): running.** The scikit-image install succeeded this time.
+- **R7 (job 1715742): done (negative).** Thickness 0.2–0.4 doesn't change the genus, but the blend radius does. Depth 2 gives genus 0/0/7/0 for blend 1.5/3/5/8, and depth 3 gives 0/1/62/8 (7 components at blend 5). So the sealed-surface genus is an artefact of smoothing, not a tiling invariant.
